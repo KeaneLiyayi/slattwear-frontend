@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.hero {
+    background-image: url('/clouds.jpg'); /* Use a relative URL path */
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 40vh;
+    background-position: center; 
+    
+}
+
+.collections{
+    height: 30vh;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 40vh; /* Adjust height for smaller screens */
+    }
+    .collections{
+        height: 20vh;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero {
+        height: 30vh; /* Adjust height for smaller screens */
+    }
+    .collections{
+        height: 30vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 40vh; /* Adjust height for smaller screens */
+    }
+    .collections{
+        height: 20vh;
+    }
+}
