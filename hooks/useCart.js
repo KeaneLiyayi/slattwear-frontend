@@ -1,36 +1,57 @@
-import React, { useEffect, useState } from 'react'
+
+import React, { useEffect, useRef, useState } from 'react';
+import toast from 'react-hot-toast';
 
 const useCart = () => {
-    const [cart, setCart] = useState([]);
+    const getInitialCart = () => {
+        if (typeof window !== 'undefined' && window.localStorage) {
+            return JSON.parse(localStorage.getItem('cart')) || [];
+        }
+        return [];
+    };
+
+    const [cart, setCart] = useState(getInitialCart());
+    const initialRender = useRef(true);
 
     useEffect(() => {
-        const savedCart = JSON.parse(localStorage.getItem('cart')) || []
-        setCart(savedCart);
-    }, [])
+        const savedCart = getInitialCart();
+        if (savedCart.length === 0) {
+            setCart([...cart, ...savedCart]);
+        }
+    }, []);
+
     useEffect(() => {
-        localStorage.setItem('cart', JSON.stringify(cart))
+        if (initialRender.current) {
+            initialRender.current = false;
+            return;
+        }
+        if (typeof window !== 'undefined' && window.localStorage) {
+            window.localStorage.setItem('cart', JSON.stringify(cart));
+        }
+    }, [cart]);
+
+    const addItem = (product) => {
+        if (cart.some(item => item._id === product._id)) {
+            return toast.error("Item already exists in cart");
+        }
+        setCart(prevItems => [...prevItems, product]);
 
 
-    }, [cart])
 
-    const addItem = (item) => {
-        setCart(prevItems => [...prevItems, item]);
-    }
+        toast.success("Item added successfully");
+    };
 
     const removeItem = (itemToRemove) => {
-        setCart(prevItems => prevItems.filter(item => item._id !== itemToRemove._id)
-
-        )
-    }
+        setCart(prevItems => prevItems.filter(item => item._id !== itemToRemove._id));
+    };
 
     const clearCart = () => {
-        setCart([])
-    }
-
+        setCart([]);
+    };
 
     return {
         cart, addItem, removeItem, clearCart
-    }
-}
+    };
+};
 
-export default useCart
+export default useCart;

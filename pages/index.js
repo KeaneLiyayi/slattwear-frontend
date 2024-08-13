@@ -1,4 +1,8 @@
+import Collection from "@/components/Collection";
+import CustomerSay from "@/components/CustomerSay";
+import FeaturedProduct from "@/components/FeaturedProduct";
 import Hero from "@/components/Hero";
+import Skirt from "@/components/Skirt";
 import TopProducts from "@/components/TopProducts";
 import { mongooseConnect } from "@/lib/mongoose";
 import Product from "@/models/products";
@@ -9,6 +13,10 @@ export default function Home({ product, products }) {
     <>
       <Hero featuredProduct={product} />
       <TopProducts products={products} />
+      <FeaturedProduct />
+      <Collection />
+      <Skirt />
+
     </>
   );
 }
