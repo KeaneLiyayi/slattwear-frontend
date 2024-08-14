@@ -1,5 +1,4 @@
 import Collection from "@/components/Collection";
-import CustomerSay from "@/components/CustomerSay";
 import FeaturedProduct from "@/components/FeaturedProduct";
 import Hero from "@/components/Hero";
 import Skirt from "@/components/Skirt";
