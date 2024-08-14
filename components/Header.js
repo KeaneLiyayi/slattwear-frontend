@@ -8,7 +8,6 @@ import ListItemText from '@mui/material/ListItemText';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { getSession, signIn, signOut, useSession } from 'next-auth/react';
-import { SignUp } from '@clerk/nextjs';
 
 
 const Header = () => {
