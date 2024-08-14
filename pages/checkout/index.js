@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import axios from 'axios';
 import { useShoppingCartContext } from '@/contexts/CartContext';
-import 'intasend-inlinejs-sdk'
 import toast from 'react-hot-toast';
 import Image from 'next/image';
 
@@ -20,8 +19,6 @@ const Index = () => {
     const [zipcode, setZipcode] = useState('');
     const cartPrice = cart.reduce((acc, item) => acc + item.price, 0);
 
-
-
     useEffect(() => {
         const calculateTotal = () => {
             if (deliveryMethod === 'nation') {
@@ -35,32 +32,30 @@ const Index = () => {
         calculateTotal();
     }, [deliveryMethod, cartPrice]);
 
-
-
     useEffect(() => {
-        // Ensure InstaSend script is loaded
-        if (typeof window !== 'undefined' && window.IntaSend) {
-            const intaSendInstance = new window.IntaSend({
-                publicAPIKey: 'ISPubKey_test_aea0c2d4-412a-4a67-9668-8783db236943',
-                live: false // or true for live environment
+        if (typeof window !== 'undefined') {
+            // Dynamically import the IntaSend SDK on the client-side
+            import('intasend-inlinejs-sdk').then(module => {
+                const intaSendInstance = new module.default({
+                    publicAPIKey: 'ISPubKey_test_aea0c2d4-412a-4a67-9668-8783db236943',
+                    live: false // or true for live environment
+                });
+
+                intaSendInstance
+                    .on("COMPLETE", (response) => { console.log("COMPLETE:", response); })
+                    .on("FAILED", (response) => { console.log("FAILED:", response); })
+                    .on("IN-PROGRESS", () => { console.log("IN-PROGRESS ..."); });
+
+                window.instaSendInstance = intaSendInstance;
             });
-
-            intaSendInstance
-                .on("COMPLETE", (response) => { console.log("COMPLETE:", response); })
-                .on("FAILED", (response) => { console.log("FAILED:", response); })
-                .on("IN-PROGRESS", () => { console.log("IN-PROGRESS ..."); });
-
-            // Make the instance accessible globally or within the scope where it’s needed
-            window.instaSendInstance = intaSendInstance;
         }
     }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!deliveryMethod) {
-            toast.error("Please select a delivery method")
-            return
-
+            toast.error("Please select a delivery method");
+            return;
         }
         try {
             const name = `${firstName} ${lastName}`;
@@ -187,32 +182,22 @@ const Index = () => {
 
                                 <div className="flex flex-wrap justify-end gap-4 mt-12">
                                     <button type="submit" className="intaSendPayButton px-6 w-full py-3 text-base font-semibold tracking-wide bg-slate-950 text-white rounded-md hover:bg-slate-900" data-amount={total} data-currency="KES">Pay Ksh {total}</button>
-
-
                                 </div>
                             </form>
                         </div>
                     </div>
                     <div>
-
                         <div className="bg-slate-950 text-white p-8 rounded-lg shadow-lg flex items-center justify-between transition duration-300 ease-in-out transform hover:scale-105">
                             <div>
                                 <h2 className="text-xl font-bold mb-2">Total Amount</h2>
-                                <p className="text-base">Your total amount for purchased goods is  <span className="text-orange-500 font-semibold text-lg">Ksh {total ? total : cartPrice}</span></p>
+                                <p className="text-base">Your total amount for purchased goods is <span className="text-orange-500 font-semibold text-lg">Ksh {total ? total : cartPrice}</span></p>
                                 <p className="text-base mt-4">Shipping Fee: <span className="text-orange-500 font-semibold">{deliveryMethod}</span></p>
                                 <p className="text-base">Items Price: <span className="text-orange-500 font-semibold">Ksh {cartPrice}</span></p>
                             </div>
                             <Image undefinedhidden="true" alt="money-icon" src="https://openui.fly.dev/openui/24x24.svg?text=💰" className="w-16 h-16 transition-transform duration-300 transform hover:scale-110" />
                         </div>
-
-
-
-
-
-
                     </div>
                 </div>
-
             </section>
         </>
     );
