@@ -2,10 +2,11 @@ import { useShoppingCartContext } from '@/contexts/CartContext';
 import { Skeleton } from '@mui/material';
 import axios from 'axios';
 import { CldImage } from 'next-cloudinary';
+import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 
-const index = () => {
+const Accessories = () => {
     const [products, setProducts] = useState([]);
     const { addItem } = useShoppingCartContext()
 
@@ -53,7 +54,7 @@ const index = () => {
                 </div>
                 <div className="w-full md:w-3/4  rounded-lg">
                     <div className='w-full h-[200px] md:h-[250px] overflow-y-hidden '>
-                        <img src='https://i.pinimg.com/564x/4c/57/41/4c57414542498bc5019b2730b7fda68c.jpg' className='rounded-lg object-cover object-center h-[200px] md:h-[450px] w-full' />
+                        <Image alt="man with accesories on his fingers" src='https://i.pinimg.com/564x/4c/57/41/4c57414542498bc5019b2730b7fda68c.jpg' className='rounded-lg object-cover object-center h-[200px] md:h-[450px] w-full' />
                     </div>
 
                 </div>
@@ -120,4 +121,4 @@ const index = () => {
     )
 }
 
-export default index
+export default Accessories

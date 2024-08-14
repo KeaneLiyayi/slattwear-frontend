@@ -1,4 +1,5 @@
 import { useShoppingCartContext } from '@/contexts/CartContext'
+import Image from 'next/image'
 import React from 'react'
 
 const CheckoutItems = () => {
@@ -15,7 +16,7 @@ const CheckoutItems = () => {
                         <ul className="space-y-4  w-full">
                             {cart.map((item, index) => (
                                 <li key={index} className="flex my-2 p-1 w-full rounded-lg border items-center gap-4">
-                                    <img
+                                    <Image
                                         src="https://i.pinimg.com/564x/11/3c/f1/113cf1231fb5aadb54e40b4a26681be9.jpg"
                                         alt={item.name}
                                         className="h-16 w-16 rounded object-cover"

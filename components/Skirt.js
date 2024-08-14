@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 const Skirt = () => {
@@ -7,17 +8,17 @@ const Skirt = () => {
                 <div className="text-justified  my-auto text-slate-400">
                     <h2 className="text-2xl mb-4 text-white font-bold">What should a baddie wear?</h2>
                     <p>
-                        Are you a struggling baddie? Do you feel like you don't fit into the baddie community? Well struggle no more , the solution is right infront of you , a denim skirt.
-                        Denim skirts are making a comeback, but ours aren’t your average finds. Forget the same old styles; our thrifted denim skirts are one-of-a-kind pieces that will turn heads
+                        Are you a struggling baddie? Do you feel like you do not fit into the baddie community? Well struggle no more , the solution is right infront of you , a denim skirt.
+                        Denim skirts are making a comeback, but ours are not your average finds. Forget the same old styles; our thrifted denim skirts are one-of-a-kind pieces that will turn heads
                     </p>
                 </div>
                 <div className="hidden md:block">
-                    <img src="/skirt.png" alt="Stylish Watch" className="mx-auto w-full h-auto " />
+                    <Image src="/skirt.png" alt="Stylish Watch" className="mx-auto w-full h-auto " />
 
                 </div>
                 <div>
                     <a href="#" className="group block">
-                        <img
+                        <Image
                             src="https://i.pinimg.com/564x/ba/29/86/ba2986038fbd738097b1892b39b10b8c.jpg"
                             alt=""
                             className="aspect-square w-full rounded object-cover"

@@ -54,13 +54,11 @@ const ProductPage = ({ product }) => {
         setSelectedImage(Id);
 
     }
-    const publicIds = product.images.map(url => extractPublicId(url))
+    const publicIds = product?.images.map(url => extractPublicId(url))
 
-    useEffect(() => {
-        setSelectedImage(publicIds[0])
+    setSelectedImage(publicIds[0])
 
 
-    }, [])
 
 
     return (
@@ -83,10 +81,11 @@ const ProductPage = ({ product }) => {
 
                             <div class="w-20 flex md:flex-col  gap-3">
                                 {
-                                    publicIds && publicIds.map((publicId) => (
+                                    publicIds && publicIds.map((publicId, index) => (
                                         <CldImage
                                             onClick={() => { setSelectedImage(publicId) }}
                                             src={publicId}
+                                            key={index}
                                             alt={product.title}
                                             width={500}  // Specify desired width
                                             height={640} // Specify desired height

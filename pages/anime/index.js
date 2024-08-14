@@ -3,10 +3,11 @@ import { mongooseConnect } from '@/lib/mongoose'
 import Product from '@/models/products'
 import { Skeleton, Slide } from '@mui/material'
 import { CldImage } from 'next-cloudinary'
+import Image from 'next/image'
 import Link from 'next/link'
 import React, { useRef } from 'react'
 
-const index = ({ products }) => {
+const Anime = ({ products }) => {
     const { addItem } = useShoppingCartContext()
     const containerRef = useRef(null)
     const handleAdd = (e, item) => {
@@ -28,7 +29,7 @@ const index = ({ products }) => {
         <>
             <section className='relative max-w-screen-xl rounded-xl  overflow-hidden mx-auto bg-white  h-[200px]'>
 
-                <img className=' w-full object-cover h-full   ' src='https://wallpapers.com/images/hd/akatsuki-under-red-moon-ov2t53k3y5vafu7v.jpg' />
+                <Image alt="the akatsuki" className=' w-full object-cover h-full   ' src='https://wallpapers.com/images/hd/akatsuki-under-red-moon-ov2t53k3y5vafu7v.jpg' />
                 <div className='absolute w-full h-full z-50 top-0 p-4  bg-gradient-to-r from-slate-950 '>
                     <h2 className='text-3xl font-bold text-white'>Anime Haul</h2>
                     <p className='text-sm text-gray-400 w-1/3'>Rock the latest anime-inspired trends with our fashionable clothing and accessories</p>
@@ -93,7 +94,7 @@ const index = ({ products }) => {
     )
 }
 
-export default index
+export default Anime
 
 export async function getServerSideProps() {
     await mongooseConnect()

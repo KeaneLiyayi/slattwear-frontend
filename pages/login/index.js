@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { signIn } from 'next-auth/react';
 import toast from 'react-hot-toast';
+import Image from 'next/image';
 
 const SignInPage = () => {
     const [email, setEmail] = useState('');
@@ -37,7 +38,7 @@ const SignInPage = () => {
                             <form onSubmit={handleSubmit}>
                                 <div className="mb-12">
                                     <h3 className="text-gray-800 text-3xl font-extrabold">Sign in</h3>
-                                    <p className="text-sm mt-4 text-gray-800">Don't have an account <a href="javascript:void(0);" className="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</a></p>
+                                    <p className="text-sm mt-4 text-gray-800">Don&rsquo;t have an account <a href="javascript:void(0);" className="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</a></p>
                                 </div>
 
                                 <div>
@@ -111,7 +112,7 @@ const SignInPage = () => {
                         </div>
 
                         <div className="md:h-full bg-[#000842] rounded-xl lg:p-12 p-8">
-                            <img src="https://readymadeui.com/signin-image.webp" className="w-full h-full object-contain" alt="login-image" />
+                            <Image src="https://readymadeui.com/signin-image.webp" className="w-full h-full object-contain" alt="login-image" />
                         </div>
                     </div>
                 </div>

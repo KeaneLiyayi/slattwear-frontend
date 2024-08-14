@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function index() {
     return (
         <div>
@@ -8,13 +10,13 @@ export default function index() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <a href="#" className="group block">
                         <div className="relative h-[350px]  sm:h-[450px]">
-                            <img
+                            <Image
                                 src="https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/33/5480362/1.jpg?0293"
                                 alt=""
                                 className="absolute rounded inset-0 h-full w-full object-cover opacity-100 group-hover:opacity-0"
                             />
 
-                            <img
+                            <Image
                                 src="https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/90/963532/1.jpg?3346"
                                 alt=""
                                 className="absolute inset-0 rounded h-full w-full object-cover opacity-0 group-hover:opacity-100"
@@ -32,13 +34,13 @@ export default function index() {
                     </a>
                     <a href="#" className="group block">
                         <div className="relative h-[350px] sm:h-[450px]">
-                            <img
+                            <Image
                                 src="https://i.ebayimg.com/images/g/ilsAAOSwQLlmM~W-/s-l400.jpg"
                                 alt=""
                                 className="absolute rounded inset-0 h-full w-full object-cover opacity-100 group-hover:opacity-0"
                             />
 
-                            <img
+                            <Image
                                 src="https://i.ebayimg.com/images/g/WscAAOSwEqNmM~XB/s-l960.webp"
                                 alt=""
                                 className="absolute rounded inset-0 h-full w-full object-cover opacity-0 group-hover:opacity-100"

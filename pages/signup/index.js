@@ -1,10 +1,11 @@
 import axios from 'axios'
 import { signIn } from 'next-auth/react'
+import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import toast from 'react-hot-toast'
 
-const index = () => {
+const SignUp = () => {
     const [email, setEmail] = useState()
     const [name, setName] = useState()
     const router = useRouter()
@@ -54,7 +55,7 @@ const index = () => {
                             <form onSubmit={handleSubmit}>
                                 <div class="mb-12">
                                     <h3 class="text-gray-800 text-3xl font-extrabold">Sign in</h3>
-                                    <p class="text-sm mt-4 text-gray-800">Don't have an account <a href="javascript:void(0);" class="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</a></p>
+                                    <p class="text-sm mt-4 text-gray-800"> have an account <a href="javascript:void(0);" class="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</a></p>
                                 </div>
 
                                 <div>
@@ -157,7 +158,7 @@ const index = () => {
                         </div>
 
                         <div class="md:h-full bg-[#000842] rounded-xl lg:p-12 p-8">
-                            <img src="https://readymadeui.com/signin-image.webp" class="w-full h-full object-contain" alt="login-image" />
+                            <Image src="https://readymadeui.com/signin-image.webp" class="w-full h-full object-contain" alt="login-image" />
                         </div>
                     </div>
                 </div>
@@ -167,4 +168,4 @@ const index = () => {
     )
 }
 
-export default index
+export default SignUp

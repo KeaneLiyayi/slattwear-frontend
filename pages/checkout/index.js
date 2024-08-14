@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useShoppingCartContext } from '@/contexts/CartContext';
 import 'intasend-inlinejs-sdk'
 import toast from 'react-hot-toast';
+import Image from 'next/image';
 
 const Index = () => {
     const [value, setValue] = useState('female');
@@ -20,6 +21,7 @@ const Index = () => {
     const cartPrice = cart.reduce((acc, item) => acc + item.price, 0);
 
 
+
     useEffect(() => {
         const calculateTotal = () => {
             if (deliveryMethod === 'nation') {
@@ -33,11 +35,7 @@ const Index = () => {
         calculateTotal();
     }, [deliveryMethod, cartPrice]);
 
-    useEffect(() => {
-        setTotal(cartPrice)
 
-
-    }, [])
 
     useEffect(() => {
         // Ensure InstaSend script is loaded
@@ -62,6 +60,7 @@ const Index = () => {
         if (!deliveryMethod) {
             toast.error("Please select a delivery method")
             return
+
         }
         try {
             const name = `${firstName} ${lastName}`;
@@ -203,7 +202,7 @@ const Index = () => {
                                 <p className="text-base mt-4">Shipping Fee: <span className="text-orange-500 font-semibold">{deliveryMethod}</span></p>
                                 <p className="text-base">Items Price: <span className="text-orange-500 font-semibold">Ksh {cartPrice}</span></p>
                             </div>
-                            <img undefinedhidden="true" alt="money-icon" src="https://openui.fly.dev/openui/24x24.svg?text=💰" className="w-16 h-16 transition-transform duration-300 transform hover:scale-110" />
+                            <Image undefinedhidden="true" alt="money-icon" src="https://openui.fly.dev/openui/24x24.svg?text=💰" className="w-16 h-16 transition-transform duration-300 transform hover:scale-110" />
                         </div>
 
 

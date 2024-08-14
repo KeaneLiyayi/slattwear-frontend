@@ -1,6 +1,7 @@
 import React from 'react'
 import { Titan_One } from "next/font/google";
 import Link from 'next/link';
+import Image from 'next/image';
 const font = Titan_One({ subsets: ["latin"], weight: '400' });
 
 const FeaturedProduct = () => {
@@ -15,7 +16,7 @@ const FeaturedProduct = () => {
                                     <h2 className={`text-xl font-bold text-gray-900 sm:text-3xl ${font.className}`}>Streetwear Brands</h2>
 
                                     <p className="mt-4 text-gray-500">
-                                        Looking to elevate your street style? You've landed in the right place. We offer a diverse range of on-trend streetwear brands
+                                        Looking to elevate your street style? You have landed in the right place. We offer a diverse range of on-trend streetwear brands
                                     </p>
                                 </header>
 
@@ -32,7 +33,7 @@ const FeaturedProduct = () => {
                             <ul className="grid grid-cols-2 gap-4">
                                 <li>
                                     <Link href={'/product/66a9cefd70e76e9c69a07d21'} className="group block">
-                                        <img
+                                        <Image
                                             src="https://d3nt9em9l1urz8.cloudfront.net/media/catalog/product/cache/3/image/9df78eab33525d08d6e5fb8d27136e95/a/p/ap1j30115007grn-1.jpg"
                                             alt=""
                                             className="aspect-square w-full rounded object-cover"
@@ -51,7 +52,7 @@ const FeaturedProduct = () => {
 
                                 <li>
                                     <Link href={'/product/66a9d24170e76e9c69a07d45'} className="group block">
-                                        <img
+                                        <Image
                                             src="https://www.flatspot.com/cdn/shop/products/stussy-two-tone-hoodie-navy-1_1300x1500_crop_center.progressive.jpg?v=1617898402"
                                             alt=""
                                             className="aspect-square object-cover w-full rounded "
