@@ -1,16 +1,38 @@
 // components/ProductPage.js
 import { useEffect, useState } from 'react';
 import { useShoppingCartContext } from '@/contexts/CartContext';
+/*
 import { mongooseConnect } from '@/lib/mongoose';
 import Product from '@/models/products';
+*/
 import { useRouter } from 'next/router';
 import { CldImage } from 'next-cloudinary';
+import axios from 'axios';
 
 
 
-const ProductPage = ({ product }) => {
+const ProductPage = () => {
     const { addItem } = useShoppingCartContext();
     const [selectedImage, setSelectedImage] = useState()
+    const [product, setProduct] = useState()
+    const router = useRouter()
+
+    useEffect(() => {
+        async function fetchProduct() {
+            try {
+                const { id } = router.query;
+                const response = await axios.get(`/api/products?id=${id}`)
+                console.log(response)
+                setProduct(response.data)
+
+            } catch (err) {
+                console.log(err.message)
+
+            }
+        }
+        fetchProduct();
+
+    }, [])
 
     useEffect(() => {
         if (window.cloudinary && window.cloudinary.galleryWidget) {
@@ -48,9 +70,17 @@ const ProductPage = ({ product }) => {
         setSelectedImage(Id);
 
     }
-    const publicIds = product?.images.map(url => extractPublicId(url))
 
-    setSelectedImage(publicIds[0])
+    useEffect(() => {
+        if (product) {
+            const publicIds = product.images.map(url => extractPublicId(url));
+            setSelectedImage(publicIds[0]);
+        }
+    }, [product]);
+
+
+
+
 
 
 
@@ -141,6 +171,7 @@ const ProductPage = ({ product }) => {
 
 export default ProductPage;
 
+/*
 export async function getServerSideProps(context) {
     await mongooseConnect();
 
@@ -163,4 +194,4 @@ export async function getServerSideProps(context) {
             }
         };
     }
-}
+}*/
