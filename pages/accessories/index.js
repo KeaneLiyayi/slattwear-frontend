@@ -54,7 +54,7 @@ const Accessories = () => {
                 </div>
                 <div className="w-full md:w-3/4  rounded-lg">
                     <div className='w-full h-[200px] md:h-[250px] overflow-y-hidden '>
-                        <Image alt="man with accesories on his fingers" src='https://i.pinimg.com/564x/4c/57/41/4c57414542498bc5019b2730b7fda68c.jpg' className='rounded-lg object-cover object-center h-[200px] md:h-[450px] w-full' />
+                        <Image alt="man with accesories on his fingers" src='/accessories.jpeg' className='rounded-lg object-cover object-center h-[200px] md:h-[450px] w-full' />
                     </div>
 
                 </div>

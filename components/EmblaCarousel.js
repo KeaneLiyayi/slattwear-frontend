@@ -35,7 +35,7 @@ export function EmblaCarousel() {
 
                     </div>
                     <div className='  h-full w-1/2'>
-                        <Image className="h-full w-full object-contain" src="https://i.pinimg.com/564x/95/13/57/9513577ec403e3caf188c7b7be825390.jpg" alt="Image 1" />
+                        <Image className="h-full w-full object-contain" src="/rings.jpeg" alt="Image 1" />
                     </div>
 
                 </div>
@@ -63,7 +63,7 @@ export function EmblaCarousel() {
 
                     </div>
                     <div className='  h-full w-1/2'>
-                        <Image className="h-full w-full object-cover" src="https://img.fruugo.com/product/6/10/157924106_max.jpg" alt="Image 1" />
+                        <Image className="h-full w-full object-cover" src="/onepc.jpeg" alt="Image 1" />
                     </div>
 
                 </div>
@@ -92,7 +92,7 @@ export function EmblaCarousel() {
 
                     </div>
                     <div className='  h-full w-1/2'>
-                        <Image className="h-full w-full object-cover" src="https://i.pinimg.com/564x/00/2d/51/002d51e279fc6fa9e6051b845521a912.jpg" alt="Image 1" />
+                        <Image className="h-full w-full object-cover" src="beanie.jpeg" alt="Image 1" />
                     </div>
 
                 </div>

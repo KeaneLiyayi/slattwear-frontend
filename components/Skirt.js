@@ -19,7 +19,7 @@ const Skirt = () => {
                 <div>
                     <a href="#" className="group block">
                         <Image
-                            src="https://i.pinimg.com/564x/ba/29/86/ba2986038fbd738097b1892b39b10b8c.jpg"
+                            src="/theskirt.jpeg"
                             alt=""
                             className="aspect-square w-full rounded object-cover"
                         />

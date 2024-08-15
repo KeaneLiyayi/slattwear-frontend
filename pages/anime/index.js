@@ -29,7 +29,7 @@ const Anime = ({ products }) => {
         <>
             <section className='relative max-w-screen-xl rounded-xl  overflow-hidden mx-auto bg-white  h-[200px]'>
 
-                <Image alt="the akatsuki" className=' w-full object-cover h-full   ' src='https://wallpapers.com/images/hd/akatsuki-under-red-moon-ov2t53k3y5vafu7v.jpg' />
+                <Image alt="the akatsuki" className=' w-full object-cover h-full   ' src='/akatsuki.jpg' />
                 <div className='absolute w-full h-full z-50 top-0 p-4  bg-gradient-to-r from-slate-950 '>
                     <h2 className='text-3xl font-bold text-white'>Anime Haul</h2>
                     <p className='text-sm text-gray-400 w-1/3'>Rock the latest anime-inspired trends with our fashionable clothing and accessories</p>
