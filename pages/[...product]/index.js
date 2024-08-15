@@ -6,13 +6,7 @@ import Product from '@/models/products';
 import { useRouter } from 'next/router';
 import { CldImage } from 'next-cloudinary';
 
-const extractPublicId = (url) => {
-    const urlObj = new URL(url);
-    const pathParts = urlObj.pathname.split('/');
-    const publicIdWithFormat = pathParts.pop();
-    const publicId = publicIdWithFormat.split('.')[0]; // Extract public ID
-    return publicId;
-};
+
 
 const ProductPage = ({ product }) => {
     const { addItem } = useShoppingCartContext();
