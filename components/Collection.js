@@ -1,7 +1,7 @@
 import React from 'react'
-import { Titan_One } from "next/font/google";
+import { Bowlby_One_SC } from "next/font/google";
 import Image from 'next/image';
-const font = Titan_One({ subsets: ["latin"], weight: '400' });
+const font = Bowlby_One_SC({ subsets: ["latin"], weight: '400' });
 
 const Collection = () => {
     return (
@@ -28,7 +28,7 @@ const Collection = () => {
 
                     </div>
                     <div className='flex justify-center  w-1/2'>
-                        <Image alt="Beanie" src='https://i.pinimg.com/564x/75/bb/2e/75bb2e5135cd2a9036953f539a7a8d15.jpg' className='sm:w-full md:w-1/2' />
+                        <Image width={500} height={500} alt="Beanie" src='/beanie.jpeg' className='sm:w-full md:w-1/2' />
                     </div>
                 </div>
 

@@ -3,10 +3,10 @@ import { useTheme, useMediaQuery } from '@mui/material';
 import { Button } from '@mui/material';
 import { EmblaCarousel } from './EmblaCarousel';
 import Link from 'next/link';
-import { Titan_One } from "next/font/google";
+import { Bowlby_One_SC } from "next/font/google";
 import Hero2 from './Hero2';
 import Image from 'next/image';
-const font = Titan_One({ subsets: ["latin"], weight: '400' });
+const font = Bowlby_One_SC({ subsets: ["latin"], weight: '400' });
 
 
 
@@ -21,8 +21,8 @@ const Hero = ({ featuredProduct }) => {
         <div className={`relative max-w-screen-xl mx-auto ${font.className}`}>
             <div className="relative rounded-xl w-full overflow-hidden flex justify-center  hero ">
                 <div className="flex woza flex-col text-[70px] md:flex-row items-center justify-center text-[3.5rem]  h-full font-black text-white   ">
-                    <h1 className="sm:text-6xl text-[3.9rem] md:text-[6rem] lg:text-8xl mb-[70px] md:mb-0 lg:mb-0 md:text-9xl md:mr-[120px] lg:mr-[170px]">SLATT</h1>
-                    <Image src="/luffy.png" width={100} height={100} className="absolute w-full my-auto h-[135px] md:h-[200px] lg:h-[240px] 2" alt="Luffy" />
+                    <h1 className={`sm:text-6xl text-[3.9rem] md:text-[6rem] lg:text-8xl mb-[70px] md:mb-0 lg:mb-0 md:text-9xl md:mr-[120px] lg:mr-[170px] `}>SLATT</h1>
+                    <Image src="/luffy.png" width={200} height={350} className="absolute w-200 md:w-[250px]" alt="Luffy" />
                     <h1 className="text-[3.9rem] md:text-[6rem]  lg:text-8xl">WEAR</h1>
                 </div>
                 <div className='absolute right-2 top-6 hover:scale-110 transition-all duration-100 ease-in-out   rounded-full '>

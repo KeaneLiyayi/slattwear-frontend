@@ -8,32 +8,34 @@ import Product from '@/models/products';
 import { useRouter } from 'next/router';
 import { CldImage } from 'next-cloudinary';
 import axios from 'axios';
+import { mongooseConnect } from '@/lib/mongoose';
+import Product from '@/models/products';
 
 
 
-const ProductPage = () => {
+const ProductPage = ({ product }) => {
     const { addItem } = useShoppingCartContext();
     const [selectedImage, setSelectedImage] = useState()
-    const [product, setProduct] = useState()
     const router = useRouter()
-
-    useEffect(() => {
-        async function fetchProduct() {
-            try {
-                const { id } = router.query;
-                const response = await axios.get(`/api/products?id=${id}`)
-                console.log(response)
-                setProduct(response.data)
-
-            } catch (err) {
-                console.log(err.message)
-
+    const [publicIds, setPublicIds] = useState()
+    /*
+        useEffect(() => {
+            async function fetchProduct() {
+                try {
+                    const { id } = router.query;
+                    const response = await axios.get(`/api/products?id=${id}`)
+                    console.log(response)
+                    setProduct(response.data)
+    
+                } catch (err) {
+                    console.log(err.message)
+    
+                }
             }
-        }
-        fetchProduct();
-
-    }, [])
-
+            fetchProduct();
+    
+        }, [])
+    */
     useEffect(() => {
         if (window.cloudinary && window.cloudinary.galleryWidget) {
             console.log('Atii')
@@ -70,13 +72,17 @@ const ProductPage = () => {
         setSelectedImage(Id);
 
     }
-
+    console.log(product)
     useEffect(() => {
         if (product) {
-            const publicIds = product.images.map(url => extractPublicId(url));
-            setSelectedImage(publicIds[0]);
+            const publics = product.images.map(url => extractPublicId(url));
+            setPublicIds(publics)
+            console.log(publics)
+            setSelectedImage(publics[0]);
         }
-    }, [product]);
+        console.log(product)
+    }, []);
+
 
 
 
@@ -92,8 +98,9 @@ const ProductPage = () => {
                     <div class="grid items-start grid-cols-1 md:grid-cols-2 gap-6">
 
                         <div class="w-full lg:sticky top-0 flex flex-col md:flex-row gap-3">
+
                             <CldImage
-                                src={selectedImage ? selectedImage : publicIds[0]}
+                                src={selectedImage}
                                 alt={product.title}
                                 width={400}  // Specify desired width
                                 height={600} // Specify desired height
@@ -171,7 +178,7 @@ const ProductPage = () => {
 
 export default ProductPage;
 
-/*
+
 export async function getServerSideProps(context) {
     await mongooseConnect();
 
@@ -194,4 +201,4 @@ export async function getServerSideProps(context) {
             }
         };
     }
-}*/
+}

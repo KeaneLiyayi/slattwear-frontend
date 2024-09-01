@@ -7,8 +7,9 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 
 const Index = () => {
+    const [products, setProducts] = useState([]);
+    const [filteredProducts, setFilteredProducts] = useState([]);
     const [category, setCategory] = useState('');
-    const [products, setProducts] = useState();
     const { addItem } = useShoppingCartContext();
 
     const active = 'underline underline-offset-4';
@@ -23,32 +24,41 @@ const Index = () => {
     };
 
     const handleChange = (e) => {
-        const value = e.target.value;
-        setCategory(value);
-    }
+        setCategory(e.target.value);
+    };
 
     useEffect(() => {
         async function fetchProducts() {
             try {
-                const data = await axios.get(`/api/products?category=${category}`);
-                console.log(data);
-                setProducts(data.data.products);
+                const response = await axios.get('/api/products');
+                setProducts(response.data.products || []); // Fetch all products
+                setFilteredProducts(response.data.products || []); // Initially show all products
             } catch (err) {
                 console.log(err);
+                setProducts([]);
+                setFilteredProducts([]);
             }
         }
 
         fetchProducts();
-    }, [category]);
+    }, []);
+
+    useEffect(() => {
+        if (category === '') {
+            setFilteredProducts(products); // Show all products if category is empty
+        } else {
+            setFilteredProducts(products.filter(product => product.category === category));
+        }
+    }, [category, products]); // Update filtered products when category or products change
 
     const extractPublicId = (url) => {
-        // Parse the URL to extract the public ID
+        if (!url) return ''; // Handle cases where url might be undefined
         const urlObj = new URL(url);
         const pathParts = urlObj.pathname.split('/');
         const publicIdWithFormat = pathParts.pop();
-        const publicId = publicIdWithFormat.split('.')[0]; // Extract public ID
+        const publicId = publicIdWithFormat.split('.')[0];
         return publicId;
-    }
+    };
 
     return (
         <div>
@@ -90,7 +100,7 @@ const Index = () => {
                     </div>
 
                     <ul className="mt-4 grid gap-4  grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
-                        {products ? products.map((item, index) => {
+                        {filteredProducts ? filteredProducts.map((item, index) => {
                             const publicId = extractPublicId(item.images[0]);
                             return (
                                 <Link href={`/product/${item._id}`} key={item._id} className="group block">
@@ -104,6 +114,7 @@ const Index = () => {
                                             quality="auto" // Automatic quality
                                             format="auto" // Automatic format
                                             className="rounded"
+                                            layout="responsive"
                                         />
                                     </div>
                                     <div className='w-3/4'>

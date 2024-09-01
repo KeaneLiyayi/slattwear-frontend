@@ -1,8 +1,8 @@
 import React from 'react'
-import { Titan_One } from "next/font/google";
+import { Bowlby_One_SC } from "next/font/google";
 import Link from 'next/link';
 import Image from 'next/image';
-const font = Titan_One({ subsets: ["latin"], weight: '400' });
+const font = Bowlby_One_SC({ subsets: ["latin"], weight: '400' });
 
 const FeaturedProduct = () => {
     return (
@@ -34,7 +34,8 @@ const FeaturedProduct = () => {
                                 <li>
                                     <Link href={'/product/66a9cefd70e76e9c69a07d21'} className="group block">
                                         <Image
-                                            src="bathing.jpeg"
+                                            width={600} height={600}
+                                            src="/bathing.jpeg"
                                             alt=""
                                             className="aspect-square w-full rounded object-cover"
                                         />
@@ -53,7 +54,8 @@ const FeaturedProduct = () => {
                                 <li>
                                     <Link href={'/product/66a9d24170e76e9c69a07d45'} className="group block">
                                         <Image
-                                            src="stussy.jpeg"
+                                            width={500} height={500}
+                                            src="/stussy.jpeg"
                                             alt=""
                                             className="aspect-square object-cover w-full rounded "
                                         />

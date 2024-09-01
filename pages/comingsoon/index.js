@@ -11,16 +11,14 @@ export default function index() {
                     <a href="#" className="group block">
                         <div className="relative h-[350px]  sm:h-[450px]">
                             <Image
-                                src="https://ke.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/33/5480362/1.jpg?0293"
+                                height={600}
+                                width={600}
+                                src="/skeleton.jpeg"
                                 alt=""
-                                className="absolute rounded inset-0 h-full w-full object-cover opacity-100 group-hover:opacity-0"
+                                className="absolute rounded inset-0 h-full w-full object-cover opacity-100 "
                             />
 
-                            <Image
-                                src="https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/90/963532/1.jpg?3346"
-                                alt=""
-                                className="absolute inset-0 rounded h-full w-full object-cover opacity-0 group-hover:opacity-100"
-                            />
+
                         </div>
 
                         <div className="mt-3">
@@ -35,21 +33,19 @@ export default function index() {
                     <a href="#" className="group block">
                         <div className="relative h-[350px] sm:h-[450px]">
                             <Image
-                                src="https://i.ebayimg.com/images/g/ilsAAOSwQLlmM~W-/s-l400.jpg"
+                                height={600}
+                                width={600}
+                                src="/gothic.jpeg"
                                 alt=""
-                                className="absolute rounded inset-0 h-full w-full object-cover opacity-100 group-hover:opacity-0"
+                                className="absolute rounded inset-0 h-full w-full object-cover opacity-100 "
                             />
 
-                            <Image
-                                src="https://i.ebayimg.com/images/g/WscAAOSwEqNmM~XB/s-l960.webp"
-                                alt=""
-                                className="absolute rounded inset-0 h-full w-full object-cover opacity-0 group-hover:opacity-100"
-                            />
+
                         </div>
 
                         <div className="mt-3">
                             <h3 className="text-sm text-gray-700 group-hover:underline group-hover:underline-offset-4">
-                                Liquid Y2K Earring Silver                            </h3>
+                                Gothic Necklace                            </h3>
 
                             <p className="mt-1.5 text-pretty text-xs text-gray-500">
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis quibusdam ab maiores placeat

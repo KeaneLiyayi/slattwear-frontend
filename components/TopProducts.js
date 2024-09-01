@@ -4,9 +4,9 @@ import Link from 'next/link'
 import React from 'react'
 import toast from 'react-hot-toast'
 import { CldImage } from 'next-cloudinary'
-import { Titan_One } from "next/font/google";
+import { Bowlby_One_SC } from "next/font/google";
 
-const font = Titan_One({ subsets: ["latin"], weight: '400' });
+const font = Bowlby_One_SC({ subsets: ["latin"], weight: '400' });
 
 const TopProducts = ({ products }) => {
     const { cart, addItem, removeItem, clearCart } = useShoppingCartContext()
@@ -30,7 +30,7 @@ const TopProducts = ({ products }) => {
     if (products) {
         return (
             <div className='mt-6 max-w-screen-xl mx-auto'>
-                <h1 className={`${font.className} w-full text-center text-5xl font-black mb-6`}>TOP PICKS</h1>
+                <h1 className={`${font.className} w-full text-center text-5xl  mb-6`}>TOP PICKS</h1>
                 <div className=''>
                     <div className="grid grid-cols-1 gap-2 grid-cols-2 md:grid-cols-4 lg:gap-8">
                         {

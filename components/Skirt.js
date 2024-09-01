@@ -13,12 +13,13 @@ const Skirt = () => {
                     </p>
                 </div>
                 <div className="hidden md:block">
-                    <Image src="/skirt.png" alt="Stylish Watch" className="mx-auto w-full h-auto " />
+                    <Image width={500} height={500} src="/skirt.png" alt="Stylish Watch" className="mx-auto w-full h-auto " />
 
                 </div>
                 <div>
                     <a href="#" className="group block">
                         <Image
+                            width={500} height={500}
                             src="/theskirt.jpeg"
                             alt=""
                             className="aspect-square w-full rounded object-cover"

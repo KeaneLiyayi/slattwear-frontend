@@ -56,7 +56,7 @@ const Header = () => {
                     <div className="flex w-[200px] h-8">
                         <div className="block">
                             <Link href="/" className="font-bold text-2xl">
-                                Slatt Wea
+                                Slatt Wear
                             </Link>
                         </div>
                     </div>

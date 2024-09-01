@@ -54,7 +54,11 @@ const Accessories = () => {
                 </div>
                 <div className="w-full md:w-3/4  rounded-lg">
                     <div className='w-full h-[200px] md:h-[250px] overflow-y-hidden '>
-                        <Image alt="man with accesories on his fingers" src='/accessories.jpeg' className='rounded-lg object-cover object-center h-[200px] md:h-[450px] w-full' />
+                        <Image
+                            height={600}
+                            width={600}
+
+                            alt="man with accesories on his fingers" src='/accessories.jpeg' className='rounded-lg object-cover object-center h-[200px] md:h-[450px] w-full' />
                     </div>
 
                 </div>
