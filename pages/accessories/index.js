@@ -19,7 +19,7 @@ const Accessories = () => {
     useEffect(() => {
         async function fetchProducts() {
             try {
-                const data = await axios.get(`/api/products?category=accessory`)
+                const data = await axios.get(`/api/accessories`)
                 console.log(data)
                 setProducts(data.data.products)
             } catch (err) {
@@ -52,66 +52,70 @@ const Accessories = () => {
                     </div>
 
                 </div>
-                <div className="w-full md:w-3/4  rounded-lg">
-                    <div className='w-full h-[200px] md:h-[250px] overflow-y-hidden '>
+                <div className="w-full md:w-1/2   rounded-lg">
+                    <div className='w-full flex justify-end md:justify-center h-[200px] md:h-[250px] overflow-y-hidden '>
                         <Image
+                            width={250}
                             height={600}
-                            width={600}
 
-                            alt="man with accesories on his fingers" src='/accessories.jpeg' className='rounded-lg object-cover object-center h-[200px] md:h-[450px] w-full' />
+
+                            alt="man with accesories on his fingers" src='/chain2.png' className='rounded-lg object-fit object-center h-[200px] md:h-full ' />
+
                     </div>
 
                 </div>
 
             </section>
             <ul className="mt-4 mx-auto grid gap-4 border grid-cols-2 w-full mx-auto max-w-screen-xl md:grid-cols-4 lg:grid-cols-5">
-                {products ? products.map((item, index) => {
-                    const publicId = extractPublicId(item.images[0]);
-                    return (
-                        <Link href={`/product/${item._id}`} key={item._id} className="group block">
-                            <div className="relative aspect-square w-full">
-                                <CldImage
-                                    src={publicId}
-                                    alt={item.title}
-                                    width={500}  // Specify desired width
-                                    height={600} // Specify desired height
-                                    crop="fill" // Adjust cropping as needed
-                                    quality="auto" // Automatic quality
-                                    format="auto" // Automatic format
-                                    className="rounded"
-                                />
-                            </div>
-                            <div className='w-3/4'>
-                                <h3 className="font-medium text-sm text-gray-900 group-hover:underline group-hover:underline-offset-4">
-                                    {item.title}
-                                </h3>
-                            </div>
-                            <div className="mt-1 flex justify-end items-center">
-                                <div className='flex items-end w-full justify-start'>
-                                    <p className="mt-1 text-sm text-orange-700">Ksh {item.price}</p>
+                {products.length === 0 ?
+                    (
+                        Array.from(new Array(8)).map((_, index) => (
+                            <li key={index} className="flex flex-col">
+                                <Skeleton variant="rounded" width="100%" height={200} />
+                                <Skeleton width="60%" />
+                                <Skeleton width="40%" />
+                            </li>
+                        ))
+                    )
+                    : products.map((item, index) => {
+                        const publicId = extractPublicId(item.images[0]);
+                        return (
+                            <Link href={`/product/${item._id}`} key={item._id} className="group block">
+                                <div className="relative aspect-square w-full">
+                                    <CldImage
+                                        src={publicId}
+                                        alt={item.title}
+                                        width={500}  // Specify desired width
+                                        height={600} // Specify desired height
+                                        crop="fill" // Adjust cropping as needed
+                                        quality="auto" // Automatic quality
+                                        format="auto" // Automatic format
+                                        className="rounded"
+                                    />
                                 </div>
-                                <button
-                                    type="button"
-                                    className="inline-flex items-center gap-1.5 rounded-lg border border-green-500 bg-slate-950 px-2 md:px-5 py-1 md:py-2.5 text-center text-xs md:text-sm font-medium text-white shadow-sm transition-all hover:border-green-700 hover:bg-green-700 focus:ring focus:ring-green-200 disabled:cursor-not-allowed disabled:border-green-300 disabled:bg-green-300"
-                                    onClick={(e) => handleAdd(e, item)}
-                                >
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-                                    </svg>
-                                    Add
-                                </button>
-                            </div>
-                        </Link>
-                    );
-                }) : (
-                    Array.from(new Array(8)).map((_, index) => (
-                        <li key={index} className="flex flex-col">
-                            <Skeleton variant="rounded" width="100%" height={200} />
-                            <Skeleton width="60%" />
-                            <Skeleton width="40%" />
-                        </li>
-                    ))
-                )}
+                                <div className='w-3/4'>
+                                    <h3 className="font-medium text-sm text-gray-900 group-hover:underline group-hover:underline-offset-4">
+                                        {item.title}
+                                    </h3>
+                                </div>
+                                <div className="mt-1 flex justify-end items-center">
+                                    <div className='flex items-end w-full justify-start'>
+                                        <p className="mt-1 text-sm text-orange-700">Ksh {item.price}</p>
+                                    </div>
+                                    <button
+                                        type="button"
+                                        className="inline-flex items-center gap-1.5 rounded-lg border border-green-500 bg-slate-950 px-2 md:px-5 py-1 md:py-2.5 text-center text-xs md:text-sm font-medium text-white shadow-sm transition-all hover:border-green-700 hover:bg-green-700 focus:ring focus:ring-green-200 disabled:cursor-not-allowed disabled:border-green-300 disabled:bg-green-300"
+                                        onClick={(e) => handleAdd(e, item)}
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                                        </svg>
+                                        Add
+                                    </button>
+                                </div>
+                            </Link>
+                        );
+                    })}
 
 
             </ul>

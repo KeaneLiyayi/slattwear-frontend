@@ -1,10 +1,10 @@
 import { Bowlby_One_SC } from "next/font/google";
 import Image from "next/image";
-import { Noto_Serif } from "next/font/google";
+import { Varela_Round } from "next/font/google";
 
 
 const font = Bowlby_One_SC({ subsets: ["latin"], weight: '400' });
-const fontw = Noto_Serif({ subsets: ["latin"], weight: '400' })
+const fontw = Varela_Round({ subsets: ["latin"], weight: '400' })
 export default function index() {
     return (
 

@@ -1,10 +1,12 @@
 import { mongooseConnect } from '@/lib/mongoose'
 import Product from '@/models/products'
+import { useSearchParams } from 'next/navigation'
 import React from 'react'
 
 const products = async (req, res) => {
     await mongooseConnect()
     try {
+
 
 
 

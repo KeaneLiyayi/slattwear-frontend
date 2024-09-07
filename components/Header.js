@@ -8,7 +8,10 @@ import ListItemText from '@mui/material/ListItemText';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { getSession, signIn, signOut, useSession } from 'next-auth/react';
+import { Varela_Round } from "next/font/google";
 
+
+const font = Varela_Round({ subsets: ["latin"], weight: '400' });
 
 const Header = () => {
     const router = useRouter();
@@ -45,7 +48,7 @@ const Header = () => {
 
     return (
         <>
-            <header className={`bg-white  mx-2 mt-0 max-w-screen-xl mx-auto rounded-3xl h-12 my-4 sticky top-2 border z-40`}>
+            <header className={`bg-white  mx-2 mt-0 max-w-screen-xl mx-auto rounded-3xl h-12 ${font.className} my-4 sticky top-2 border z-40`}>
                 <div className="flex justify-between w-full h-full items-center px-4 sm:px-2 lg:px-8">
                     <div className="block md:hidden">
                         <IconButton onClick={toggleDrawer(true)} aria-label="open drawer">

@@ -5,6 +5,7 @@ import { CldImage } from 'next-cloudinary';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion'
 
 const Index = () => {
     const [products, setProducts] = useState([]);
@@ -100,11 +101,25 @@ const Index = () => {
                     </div>
 
                     <ul className="mt-4 grid gap-4  grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
-                        {filteredProducts ? filteredProducts.map((item, index) => {
+                        {filteredProducts.length === 0 ? (
+                            Array.from(new Array(10)).map((_, index) => (
+                                <li key={index} className="flex flex-col">
+                                    <Skeleton variant="rounded" width="100%" height={200} />
+                                    <Skeleton width="60%" />
+                                    <Skeleton width="40%" />
+                                </li>
+                            ))
+                        ) : filteredProducts.map((item, index) => {
                             const publicId = extractPublicId(item.images[0]);
                             return (
                                 <Link href={`/product/${item._id}`} key={item._id} className="group block">
-                                    <div className="relative aspect-square w-full">
+                                    <motion.div
+                                        initial={{ opacity: 1 }}
+                                        whileInView={{
+                                            opacity: 1
+                                        }}
+                                        viewport={{ once: true, }}
+                                        className="relative aspect-square w-full">
                                         <CldImage
                                             src={publicId}
                                             alt={item.title}
@@ -116,7 +131,7 @@ const Index = () => {
                                             className="rounded"
                                             layout="responsive"
                                         />
-                                    </div>
+                                    </motion.div>
                                     <div className='w-3/4'>
                                         <h3 className="font-medium text-sm text-gray-900 group-hover:underline group-hover:underline-offset-4">
                                             {item.title}
@@ -139,15 +154,7 @@ const Index = () => {
                                     </div>
                                 </Link>
                             );
-                        }) : (
-                            Array.from(new Array(8)).map((_, index) => (
-                                <li key={index} className="flex flex-col">
-                                    <Skeleton variant="rounded" width="100%" height={200} />
-                                    <Skeleton width="60%" />
-                                    <Skeleton width="40%" />
-                                </li>
-                            ))
-                        )}
+                        })}
                     </ul>
                 </div>
             </section>

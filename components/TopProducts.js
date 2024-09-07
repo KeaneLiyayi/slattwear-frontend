@@ -30,7 +30,7 @@ const TopProducts = ({ products }) => {
     if (products) {
         return (
             <div className='mt-6 max-w-screen-xl mx-auto'>
-                <h1 className={`${font.className} w-full text-center text-5xl  mb-6`}>TOP PICKS</h1>
+                <h1 className={`${font.className} w-full text-center text-4xl md:text-5xl  mb-6`}>TOP PICKS</h1>
                 <div className=''>
                     <div className="grid grid-cols-1 gap-2 grid-cols-2 md:grid-cols-4 lg:gap-8">
                         {

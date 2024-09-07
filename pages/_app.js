@@ -3,10 +3,10 @@ import Header from "@/components/Header";
 import CartProvider from "@/contexts/CartContext";
 import "@/styles/globals.css";
 import { SessionProvider } from "next-auth/react"
-import { Lato } from "next/font/google";
+import { Varela_Round } from "next/font/google";
 import { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
-const inter = Lato({ subsets: ["latin"], weight: '700' });
+const inter = Varela_Round({ subsets: ["latin"], weight: '400' });
 
 
 

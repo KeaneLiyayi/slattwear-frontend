@@ -139,33 +139,7 @@ const Footer = () => {
                         </div>
 
                         <div className="grid grid-cols-1 gap-8 text-center lg:grid-cols-3 lg:text-left">
-                            <div>
-                                <strong className="font-medium text-gray-900">Categories</strong>
 
-                                <ul className="mt-6 space-y-1">
-                                    <li>
-                                        <a className="text-gray-700 transition hover:text-gray-700/75" href="#"> T-Shirt </a>
-                                    </li>
-
-                                    <li>
-                                        <a className="text-gray-700 transition hover:text-gray-700/75" href="#">
-                                            Jacket
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a className="text-gray-700 transition hover:text-gray-700/75" href="#">
-                                            Pants
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a className="text-gray-700 transition hover:text-gray-700/75" href="#">
-                                            Accesories
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
                             {/*}
 
                             <div>
